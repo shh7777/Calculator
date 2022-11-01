@@ -1,0 +1,275 @@
+from tkinter import *
+
+# 기본 프레임
+root = Tk()
+root.title ("Salary_Calculator")
+root.geometry("640x500+300+100")
+
+# 설정
+setting_frame = LabelFrame(root, text="설정",padx=5, pady=5)
+setting_frame.pack(fill="x", ipady=5)
+
+# 시급
+label_money = Label(setting_frame, text="시급 :",width=7)
+label_money.pack(side="left")
+
+money = Entry(setting_frame, width=10)
+money.pack(side="left")
+money.insert(0, "")
+
+
+# 메인 화면
+main_frame = LabelFrame(root, text="메인",padx=5, pady=5)
+main_frame.pack(fill="x", ipady=5,side="top")
+
+# 요일 프레임
+day_frame = Frame(main_frame)
+day_frame.pack(padx=5, pady=10,side="top")
+
+# 리셋 버튼
+def btncmd():
+    print("리셋 버튼")
+
+# 요일
+btn_reset = Button(day_frame, text="초기화",width=10,command=btncmd)
+btn_reset.pack(side="left")
+label1 = Label(day_frame, text="월요일",width=10)
+label1.pack(side="left")
+label2 = Label(day_frame, text="화요일",width=10)
+label2.pack(side="left")
+label3 = Label(day_frame, text="수요일",width=10)
+label3.pack(side="left")
+label4 = Label(day_frame, text="목요일",width=10)
+label4.pack(side="left")
+label5 = Label(day_frame, text="금요일",width=10)
+label5.pack(side="left")
+label6 = Label(day_frame, text="토요일",width=10)
+label6.pack(side="left")
+label7 = Label(day_frame, text="일요일",width=10)
+label7.pack(side="left")
+
+
+# 날짜 기본 프레임
+week1_frame = Frame(main_frame)
+week1_frame.pack(padx=5,pady=5,side="top")
+# 시간 입력 1주차
+time_frame = Frame(main_frame)
+time_frame.pack(padx=5,side="top")
+
+# 1주차
+label_time = Label(week1_frame, text="1주차",width=10)
+label_time.pack(side="left")
+label_time = Label(time_frame, text="",width=10)
+label_time.pack(side="left")
+label_time = Label(week1_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_1 = Entry(time_frame, width=10)
+label_time1_1.pack(side="left")
+label_time = Label(week1_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_2 = Entry(time_frame, width=10)
+label_time1_2.pack(side="left")
+label_time = Label(week1_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_3 = Entry(time_frame, width=10)
+label_time1_3.pack(side="left")
+label_time = Label(week1_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_4 = Entry(time_frame, width=10)
+label_time1_4.pack(side="left")
+label_time = Label(week1_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_5 = Entry(time_frame, width=10)
+label_time1_5.pack(side="left")
+label_time = Label(week1_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_6 = Entry(time_frame, width=10)
+label_time1_6.pack(side="left")
+label_time = Label(week1_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_7 = Entry(time_frame, width=10)
+label_time1_7.pack(side="left")
+
+
+
+# 2주차
+week2_frame = Frame(main_frame)
+week2_frame.pack(padx=5,pady=5,side="top")
+# 시간 입력 2주차
+time_frame2 = Frame(main_frame)
+time_frame2.pack(padx=5,side="top")
+
+label_time = Label(week2_frame, text="2주차",width=10)
+label_time.pack(side="left")
+label_time = Label(time_frame2, text="",width=10)
+label_time.pack(side="left")
+label_time = Label(week2_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_1 = Entry(time_frame2, width=10)
+label_time1_1.pack(side="left")
+label_time = Label(week2_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_2 = Entry(time_frame2, width=10)
+label_time1_2.pack(side="left")
+label_time = Label(week2_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_3 = Entry(time_frame2, width=10)
+label_time1_3.pack(side="left")
+label_time = Label(week2_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_4 = Entry(time_frame2, width=10)
+label_time1_4.pack(side="left")
+label_time = Label(week2_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_5 = Entry(time_frame2, width=10)
+label_time1_5.pack(side="left")
+label_time = Label(week2_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_6 = Entry(time_frame2, width=10)
+label_time1_6.pack(side="left")
+label_time = Label(week2_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_7 = Entry(time_frame2, width=10)
+label_time1_7.pack(side="left")
+
+# 3주차
+week3_frame = Frame(main_frame)
+week3_frame.pack(padx=5,pady=5,side="top")
+# 시간 입력 3주차
+time_frame3 = Frame(main_frame)
+time_frame3.pack(padx=5,side="top")
+
+label_time = Label(week3_frame, text="3주차",width=10)
+label_time.pack(side="left")
+label_time = Label(time_frame3, text="",width=10)
+label_time.pack(side="left")
+label_time = Label(week3_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_1 = Entry(time_frame3, width=10)
+label_time1_1.pack(side="left")
+label_time = Label(week3_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_2 = Entry(time_frame3, width=10)
+label_time1_2.pack(side="left")
+label_time = Label(week3_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_3 = Entry(time_frame3, width=10)
+label_time1_3.pack(side="left")
+label_time = Label(week3_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_4 = Entry(time_frame3, width=10)
+label_time1_4.pack(side="left")
+label_time = Label(week3_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_5 = Entry(time_frame3, width=10)
+label_time1_5.pack(side="left")
+label_time = Label(week3_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_6 = Entry(time_frame3, width=10)
+label_time1_6.pack(side="left")
+label_time = Label(week3_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_7 = Entry(time_frame3, width=10)
+label_time1_7.pack(side="left")
+
+# 4주차
+week4_frame = Frame(main_frame)
+week4_frame.pack(padx=5,pady=5,side="top")
+# 시간 입력 4주차
+time_frame4 = Frame(main_frame)
+time_frame4.pack(padx=5,side="top")
+
+label_time = Label(week4_frame, text="4주차",width=10)
+label_time.pack(side="left")
+label_time = Label(time_frame4, text="",width=10)
+label_time.pack(side="left")
+label_time = Label(week4_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_1 = Entry(time_frame4, width=10)
+label_time1_1.pack(side="left")
+label_time = Label(week4_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_2 = Entry(time_frame4, width=10)
+label_time1_2.pack(side="left")
+label_time = Label(week4_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_3 = Entry(time_frame4, width=10)
+label_time1_3.pack(side="left")
+label_time = Label(week4_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_4 = Entry(time_frame4, width=10)
+label_time1_4.pack(side="left")
+label_time = Label(week4_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_5 = Entry(time_frame4, width=10)
+label_time1_5.pack(side="left")
+label_time = Label(week4_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_6 = Entry(time_frame4, width=10)
+label_time1_6.pack(side="left")
+label_time = Label(week4_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_7 = Entry(time_frame4, width=10)
+label_time1_7.pack(side="left")
+
+# 5주차
+week5_frame = Frame(main_frame)
+week5_frame.pack(padx=5,pady=5,side="top")
+# 시간 입력 5주차
+time_frame5 = Frame(main_frame)
+time_frame5.pack(padx=5,side="top")
+
+label_time = Label(week5_frame, text="5주차",width=10)
+label_time.pack(side="left")
+label_time = Label(time_frame5, text="",width=10)
+label_time.pack(side="left")
+label_time = Label(week5_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_1 = Entry(time_frame5, width=10)
+label_time1_1.pack(side="left")
+label_time = Label(week5_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_2 = Entry(time_frame5, width=10)
+label_time1_2.pack(side="left")
+label_time = Label(week5_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_3 = Entry(time_frame5, width=10)
+label_time1_3.pack(side="left")
+label_time = Label(week5_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_4 = Entry(time_frame5, width=10)
+label_time1_4.pack(side="left")
+label_time = Label(week5_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_5 = Entry(time_frame5, width=10)
+label_time1_5.pack(side="left")
+label_time = Label(week5_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_6 = Entry(time_frame5, width=10)
+label_time1_6.pack(side="left")
+label_time = Label(week5_frame, text="일한 시간",width=10)
+label_time.pack(side="left")
+label_time1_7 = Entry(time_frame5, width=10)
+label_time1_7.pack(side="left")
+
+# 결과
+result_frame = LabelFrame(root, text="결과 값 보기",padx=5, pady=5)
+result_frame.pack(fill="x", ipady=5,side="top")
+
+# 월급
+label_result = Label(result_frame, text="월급 :",width=15)
+label_result.pack(side="left",fill="y")
+
+res = 1000000
+#월급 - 결과 값
+result = Label(result_frame, text=f"{res}",width=60)
+result.pack(side="left",fill="y")
+
+
+# 시작 버튼 동작
+def btncmd():
+    print("시작 버튼")
+btn_start = Button(result_frame, text="결과 보기", command=btncmd,height=2)
+btn_start.pack(side="right")
+
+root.mainloop()

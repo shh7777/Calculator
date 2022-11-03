@@ -29,9 +29,8 @@ day_frame.pack(padx=5, pady=10,side="top")
 def reset():
     for i in range(1,36):
         eval(f"label_time{i}.delete(0,END)")
-        eval(f"label_time{i}.insert(0,'0')")
-    money.config(text ="")
-    result.config(text="")
+    money.delete(0,END)
+    result.config(text="0")
 
 # 요일
 btn_reset = Button(day_frame, text="초기화",width=10,command=reset)
@@ -78,7 +77,7 @@ label_time.pack(side="left")
 for i in range(1,8):
     label_time = Label(week1_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
-    globals()[f"label_time{i}"] = Entry(time_frame, width=3,textvariable=IntVar())
+    globals()[f"label_time{i}"] = Entry(time_frame, width=3)
     globals()[f"label_time{i}"].pack(side='left',padx=25,anchor='center')
 
 
@@ -90,7 +89,7 @@ label_time.pack(side="left")
 for i in range(8,15):
     label_time = Label(week2_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
-    globals()[f"label_time{i}"] = Entry(time_frame2, width=3,textvariable=IntVar())
+    globals()[f"label_time{i}"] = Entry(time_frame2, width=3)
     globals()[f"label_time{i}"].pack(side='left',padx=25,anchor='center')
     
 # 3주차
@@ -101,7 +100,7 @@ label_time.pack(side="left")
 for i in range(15,22):
     label_time = Label(week3_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
-    globals()[f"label_time{i}"] = Entry(time_frame3, width=3,textvariable=IntVar())
+    globals()[f"label_time{i}"] = Entry(time_frame3, width=3)
     globals()[f"label_time{i}"].pack(side='left',padx=25,anchor='center')
     
 # 4주차
@@ -112,7 +111,7 @@ label_time.pack(side="left")
 for i in range(22,29):
     label_time = Label(week4_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
-    globals()[f"label_time{i}"] = Entry(time_frame4, width=3,textvariable=IntVar())
+    globals()[f"label_time{i}"] = Entry(time_frame4, width=3)
     globals()[f"label_time{i}"].pack(side='left',padx=25,anchor='center')
 
 # 5주차
@@ -123,7 +122,7 @@ label_time.pack(side="left")
 for i in range(29,36):
     label_time = Label(week5_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
-    globals()[f"label_time{i}"] = Entry(time_frame5, width=3,textvariable=IntVar())
+    globals()[f"label_time{i}"] = Entry(time_frame5, width=3)
     globals()[f"label_time{i}"].pack(side='left',padx=25,anchor='center')
 
 
@@ -138,7 +137,11 @@ label_result.pack(side="left",fill="y")
 
 def start():
     total_time = []
+    if money.get() == "":
+        money.insert(0,0)
     for i in range(1,36):
+        if eval(f"len(label_time{i}.get())") <= 0:
+            eval(f"label_time{i}.insert(0,0)")
         total_time.append(eval(f"int(label_time{i}.get())"))
     total_money = sum(total_time) * int(money.get())
     result.config(text = total_money )

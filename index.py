@@ -13,9 +13,8 @@ setting_frame.pack(fill="x", ipady=5)
 label_money = Label(setting_frame, text="시급 :",width=7)
 label_money.pack(side="left")
 
-money = Entry(setting_frame, width=10,textvariable= IntVar())
+money = Entry(setting_frame, width=10)
 money.pack(side="left")
-money.insert(0, "")
 
 
 # 메인 화면
@@ -31,8 +30,8 @@ def reset():
     for i in range(1,36):
         eval(f"label_time{i}.delete(0,END)")
         eval(f"label_time{i}.insert(0,'0')")
-    money.delete(0,END)
-    money.insert(0,"0")
+    money.config(text ="")
+    result.config(text="")
 
 # 요일
 btn_reset = Button(day_frame, text="초기화",width=10,command=reset)
@@ -142,8 +141,10 @@ def start():
     for i in range(1,36):
         total_time.append(eval(f"int(label_time{i}.get())"))
     total_money = sum(total_time) * int(money.get())
-    result = Label(result_frame, text=total_money,width=60,textvariable=IntVar)
-    result.pack(side="left",fill="y")
+    result.config(text = total_money )
+
+result = Label(result_frame, text="0",width=60)
+result.pack(side="left",fill="y")
 
 #시작 버튼
 btn_start = Button(result_frame, text="결과 보기", command=start,height=2)

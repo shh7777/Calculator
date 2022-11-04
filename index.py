@@ -35,13 +35,18 @@ def reset():
     result.config(text="0")
 
 # 요일
-btn_reset = Button(day_frame, text="초기화",width=10,command=reset)
+btn_reset = Button(day_frame, text="초기화",width=9,command=reset)
 btn_reset.pack(side="left")
-day_list = ["월요일","화요일","수요일","목요일","금요일","토요일","일요일"]
+day_list = ["월요일","화요일","수요일","목요일","금요일"]
 
 for i in day_list:
     label1 = Label(day_frame, text=f"{i}",width=10)
     label1.pack(side="left")
+
+label1 = Label(day_frame, text="토요일",width=10,fg='blue')
+label1.pack(side="left")
+label1 = Label(day_frame, text="일요일",width=10,fg='red')
+label1.pack(side="left")
 
 total_time = 0
 # 모든 프레임
@@ -76,11 +81,25 @@ label_time = Label(week1_frame, text="1주차",width=10)
 label_time.pack(side="left")
 label_time = Label(time_frame, text="",width=10)
 label_time.pack(side="left")
-for i in range(1,8):
+
+# 1주차 평일
+for i in range(1,6):
     label_time = Label(week1_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
     globals()[f"label_time{i}"] = Entry(time_frame, width=3,justify="center",fg ='black',bg='#fff',bd=1)
     globals()[f"label_time{i}"].pack(side='left',padx=25)
+
+# 1주차 토요일
+label_time = Label(week1_frame, text="일한 시간",width=10,fg='blue')
+label_time.pack(side="left")
+label_time6 = Entry(time_frame, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+label_time6.pack(side='left',padx=25)
+
+# 1주차 일요일
+label_time = Label(week1_frame, text="일한 시간",width=10,fg='red')
+label_time.pack(side="left")
+label_time7 = Entry(time_frame, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+label_time7.pack(side='left',padx=25)
 
 
 # 2주차
@@ -88,45 +107,98 @@ label_time = Label(week2_frame, text="2주차",width=10)
 label_time.pack(side="left")
 label_time = Label(time_frame2, text="",width=10)
 label_time.pack(side="left")
-for i in range(8,15):
+
+# 2주차 평일
+for i in range(8,13):
     label_time = Label(week2_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
     globals()[f"label_time{i}"] = Entry(time_frame2, width=3,justify="center",fg ='black',bg='#fff',bd=1)
     globals()[f"label_time{i}"].pack(side='left',padx=25)
+# 2주차 토요일
+label_time = Label(week2_frame, text="일한 시간",width=10,fg='blue')
+label_time.pack(side="left")
+label_time13 = Entry(time_frame2, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+label_time13.pack(side='left',padx=25)
+# 2주차 일요일
+label_time = Label(week2_frame, text="일한 시간",width=10,fg='red')
+label_time.pack(side="left")
+label_time14 = Entry(time_frame2, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+label_time14.pack(side='left',padx=25)
     
 # 3주차
 label_time = Label(week3_frame, text="3주차",width=10)
 label_time.pack(side="left")
 label_time = Label(time_frame3, text="",width=10)
 label_time.pack(side="left")
-for i in range(15,22):
+
+# 3주차 평일
+for i in range(15,20):
     label_time = Label(week3_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
     globals()[f"label_time{i}"] = Entry(time_frame3, width=3,justify="center",fg ='black',bg='#fff',bd=1)
     globals()[f"label_time{i}"].pack(side='left',padx=25)
-    
+
+# 3주차 토요일
+label_time = Label(week3_frame, text="일한 시간",width=10,fg='blue')
+label_time.pack(side="left")
+label_time20 = Entry(time_frame3, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+label_time20.pack(side='left',padx=25)
+
+# 3주차 일요일
+label_time = Label(week3_frame, text="일한 시간",width=10,fg='red')
+label_time.pack(side="left")
+label_time21 = Entry(time_frame3, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+label_time21.pack(side='left',padx=25)
+   
 # 4주차
 label_time = Label(week4_frame, text="4주차",width=10)
 label_time.pack(side="left")
 label_time = Label(time_frame4, text="",width=10)
 label_time.pack(side="left")
-for i in range(22,29):
+
+# 4주차 평일
+for i in range(22,27):
     label_time = Label(week4_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
     globals()[f"label_time{i}"] = Entry(time_frame4, width=3,justify="center",fg ='black',bg='#fff',bd=1)
     globals()[f"label_time{i}"].pack(side='left',padx=25)
 
-# 5주차
+# 4주차 토요일
+label_time = Label(week4_frame, text="일한 시간",width=10,fg='blue')
+label_time.pack(side="left")
+label_time27 = Entry(time_frame4, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+label_time27.pack(side='left',padx=25)
+
+# 4주차 일요일
+label_time = Label(week4_frame, text="일한 시간",width=10,fg='red')
+label_time.pack(side="left")
+label_time28 = Entry(time_frame4, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+label_time28.pack(side='left',padx=25)
+
+# 5주차 
 label_time = Label(week5_frame, text="5주차",width=10)
 label_time.pack(side="left")
 label_time = Label(time_frame5, text="",width=10)
 label_time.pack(side="left")
-for i in range(29,36):
+
+# 5주차 평일
+for i in range(29,34):
     label_time = Label(week5_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
     globals()[f"label_time{i}"] = Entry(time_frame5, width=3,justify="center",fg ='black',bg='#fff',bd=1)
     globals()[f"label_time{i}"].pack(side='left',padx=25)
 
+# 5주차 토요일
+label_time = Label(week5_frame, text="일한 시간",width=10,fg='blue')
+label_time.pack(side="left")
+label_time34 = Entry(time_frame5, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+label_time34.pack(side='left',padx=25)
+
+# 5주차 일요일
+label_time = Label(week5_frame, text="일한 시간",width=10,fg='red')
+label_time.pack(side="left")
+label_time35 = Entry(time_frame5, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+label_time35.pack(side='left',padx=25)
 
 
 # 결과

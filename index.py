@@ -4,7 +4,7 @@ from tkinter import *
 root = Tk()
 root.title ("Salary_Calculator")
 root.geometry("640x500+300+100")
-
+root.resizable(False, False)
 # 설정
 setting_frame = LabelFrame(root, text="설정",padx=5, pady=5)
 setting_frame.pack(fill="x", ipady=5)
@@ -13,7 +13,7 @@ setting_frame.pack(fill="x", ipady=5)
 label_money = Label(setting_frame, text="시급 :",width=7)
 label_money.pack(side="left")
 
-money = Entry(setting_frame, width=10)
+money = Entry(setting_frame, width=10,justify="right",fg ='black',bg='#fff',bd=1)
 money.pack(side="left")
 
 
@@ -29,7 +29,9 @@ day_frame.pack(padx=5, pady=10,side="top")
 def reset():
     for i in range(1,36):
         eval(f"label_time{i}.delete(0,END)")
+        eval(f"label_time{i}.configure(fg ='black',bg='#fff',bd=1)")
     money.delete(0,END)
+    money.configure(fg ='black',bg='#fff',bd=1)
     result.config(text="0")
 
 # 요일
@@ -77,8 +79,8 @@ label_time.pack(side="left")
 for i in range(1,8):
     label_time = Label(week1_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
-    globals()[f"label_time{i}"] = Entry(time_frame, width=3)
-    globals()[f"label_time{i}"].pack(side='left',padx=25,anchor='center')
+    globals()[f"label_time{i}"] = Entry(time_frame, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+    globals()[f"label_time{i}"].pack(side='left',padx=25)
 
 
 # 2주차
@@ -89,8 +91,8 @@ label_time.pack(side="left")
 for i in range(8,15):
     label_time = Label(week2_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
-    globals()[f"label_time{i}"] = Entry(time_frame2, width=3)
-    globals()[f"label_time{i}"].pack(side='left',padx=25,anchor='center')
+    globals()[f"label_time{i}"] = Entry(time_frame2, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+    globals()[f"label_time{i}"].pack(side='left',padx=25)
     
 # 3주차
 label_time = Label(week3_frame, text="3주차",width=10)
@@ -100,8 +102,8 @@ label_time.pack(side="left")
 for i in range(15,22):
     label_time = Label(week3_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
-    globals()[f"label_time{i}"] = Entry(time_frame3, width=3)
-    globals()[f"label_time{i}"].pack(side='left',padx=25,anchor='center')
+    globals()[f"label_time{i}"] = Entry(time_frame3, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+    globals()[f"label_time{i}"].pack(side='left',padx=25)
     
 # 4주차
 label_time = Label(week4_frame, text="4주차",width=10)
@@ -111,8 +113,8 @@ label_time.pack(side="left")
 for i in range(22,29):
     label_time = Label(week4_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
-    globals()[f"label_time{i}"] = Entry(time_frame4, width=3)
-    globals()[f"label_time{i}"].pack(side='left',padx=25,anchor='center')
+    globals()[f"label_time{i}"] = Entry(time_frame4, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+    globals()[f"label_time{i}"].pack(side='left',padx=25)
 
 # 5주차
 label_time = Label(week5_frame, text="5주차",width=10)
@@ -122,8 +124,8 @@ label_time.pack(side="left")
 for i in range(29,36):
     label_time = Label(week5_frame, text="일한 시간",width=10)
     label_time.pack(side="left")
-    globals()[f"label_time{i}"] = Entry(time_frame5, width=3)
-    globals()[f"label_time{i}"].pack(side='left',padx=25,anchor='center')
+    globals()[f"label_time{i}"] = Entry(time_frame5, width=3,justify="center",fg ='black',bg='#fff',bd=1)
+    globals()[f"label_time{i}"].pack(side='left',padx=25)
 
 
 
@@ -139,9 +141,13 @@ def start():
     total_time = []
     if money.get() == "":
         money.insert(0,0)
+    money.configure(fg ='black',bg='#F0F0F0',bd=0)
     for i in range(1,36):
         if eval(f"len(label_time{i}.get())") <= 0:
             eval(f"label_time{i}.insert(0,0)")
+            eval(f"label_time{i}.configure(bg='#F0F0F0',bd=0)")
+        if eval(f"int(label_time{i}.get())") > 0:
+            eval(f"label_time{i}.configure(fg ='red',bg='#F0F0F0',bd=0)")
         total_time.append(eval(f"int(label_time{i}.get())"))
     total_money = sum(total_time) * int(money.get())
     result.config(text = total_money )

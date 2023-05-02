@@ -3,7 +3,7 @@ from tkinter import *
 # 기본 프레임
 root = Tk()
 root.title ("Salary_Calculator")
-root.geometry("640x500+300+100")
+root.geometry("640x600+300+100")
 root.resizable(False, False)
 # 설정
 setting_frame = LabelFrame(root, text="설정",padx=5, pady=5)
@@ -75,7 +75,7 @@ week5_frame = Frame(main_frame)
 week5_frame.pack(padx=5,pady=5,side="top")
 time_frame5 = Frame(main_frame)
 time_frame5.pack(padx=5,side="top")
-    
+
 # 1주차
 label_time = Label(week1_frame, text="1주차",width=10)
 label_time.pack(side="left")
@@ -124,7 +124,7 @@ label_time = Label(week2_frame, text="일한 시간",width=10,fg='red')
 label_time.pack(side="left")
 label_time14 = Entry(time_frame2, width=3,justify="center",fg ='black',bg='#fff',bd=1)
 label_time14.pack(side='left',padx=25)
-    
+
 # 3주차
 label_time = Label(week3_frame, text="3주차",width=10)
 label_time.pack(side="left")
@@ -149,7 +149,7 @@ label_time = Label(week3_frame, text="일한 시간",width=10,fg='red')
 label_time.pack(side="left")
 label_time21 = Entry(time_frame3, width=3,justify="center",fg ='black',bg='#fff',bd=1)
 label_time21.pack(side='left',padx=25)
-   
+
 # 4주차
 label_time = Label(week4_frame, text="4주차",width=10)
 label_time.pack(side="left")
@@ -175,7 +175,7 @@ label_time.pack(side="left")
 label_time28 = Entry(time_frame4, width=3,justify="center",fg ='black',bg='#fff',bd=1)
 label_time28.pack(side='left',padx=25)
 
-# 5주차 
+# 5주차
 label_time = Label(week5_frame, text="5주차",width=10)
 label_time.pack(side="left")
 label_time = Label(time_frame5, text="",width=10)
@@ -202,12 +202,18 @@ label_time35.pack(side='left',padx=25)
 
 
 # 결과
-result_frame = LabelFrame(root, text="결과 값 보기",padx=5, pady=5)
+result_frame = LabelFrame(root, text="결과 값 보기",padx=5, pady=50)
 result_frame.pack(fill="x", ipady=5,side="top")
 
 # 월급
 label_result = Label(result_frame, text="월급 :",width=15)
 label_result.pack(side="left",fill="y")
+
+label_result2 = Label(result_frame, text="세금 :",width=20)
+label_result2.pack(side="left",pady=20)
+
+label_result2.pack(side="left",fill="y")
+
 
 def start():
     total_time = []
@@ -228,8 +234,8 @@ result = Label(result_frame, text="0",width=60)
 result.pack(side="left",fill="y")
 
 #시작 버튼
-btn_start = Button(result_frame, text="결과 보기", command=start,height=2)
+btn_start = Button(result_frame, text="결과 보기", command=start,pady=200)
 btn_start.pack(side="right")
-    
+
 
 root.mainloop()

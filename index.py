@@ -1,5 +1,5 @@
 from tkinter import *
-
+# 현호
 # 기본 프레임
 root = Tk()
 root.title ("Salary_Calculator")
@@ -200,20 +200,21 @@ label_time.pack(side="left")
 label_time35 = Entry(time_frame5, width=3,justify="center",fg ='black',bg='#fff',bd=1)
 label_time35.pack(side='left',padx=25)
 
-
 # 결과
-result_frame = LabelFrame(root, text="결과 값 보기",padx=5, pady=50)
-result_frame.pack(fill="x", ipady=5,side="top")
+result_frame = LabelFrame(root, text="결과 값 보기", padx=5, pady=50)
+result_frame.pack(fill="x", ipady=5, side="top")
 
-# 월급
-label_result = Label(result_frame, text="월급 :",width=15)
-label_result.pack(side="left",fill="y")
+# 세금 비율
+label_tax_rate = Label(result_frame, text="세금 비율(%):", width=15, anchor='w')
+label_tax_rate.pack(side="top", fill="x")
+tax_rate = Entry(result_frame)
+tax_rate.pack(side="top", fill="x")
 
-label_result2 = Label(result_frame, text="세금 :",width=20)
-label_result2.pack(side="left",pady=20)
-
-label_result2.pack(side="left",fill="y")
-
+# 세후 월급
+label_after_tax = Label(result_frame, text="세후 월급 :", width=15, anchor='w')
+label_after_tax.pack(side="top", fill="x")
+after_tax = Label(result_frame, text="0", width=60)
+after_tax.pack(side="top", fill="y")
 
 def start():
     total_time = []
@@ -228,14 +229,18 @@ def start():
             eval(f"label_time{i}.configure(fg ='red',bg='#F0F0F0',bd=0)")
         total_time.append(eval(f"int(label_time{i}.get())"))
     total_money = sum(total_time) * int(money.get())
+    tax_ratio = int(tax_rate.get() or 0)
+    after_tax_money = total_money * (1 - tax_ratio/100)
+    after_tax.config(text = after_tax_money)
+
     result.config(text = total_money )
 
 result = Label(result_frame, text="0",width=60)
-result.pack(side="left",fill="y")
+result.pack(side="top",fill="y")
 
 #시작 버튼
-btn_start = Button(result_frame, text="결과 보기", command=start,pady=200)
-btn_start.pack(side="right")
+btn_start = Button(result_frame, text="결과 보기", command=start,pady=300)
+btn_start.pack(side="right", before=after_tax)
 
 
 root.mainloop()
